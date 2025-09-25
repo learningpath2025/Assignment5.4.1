@@ -2,8 +2,17 @@
 {
     internal class Program
     {
+
         //With Recursion
-        public static void PrintIndividualNumber(int n)
+        public static void PrintIndividualNumber2(int n)
+        {
+            if (n == 0) return;
+            PrintIndividualNumber2(n / 10);
+            Console.Write($"{n % 10} ");
+        }
+
+        //With Recursion Alternative
+        public static void PrintIndividualNumber1(int n)
         {
             string s = n.ToString();
             int l = s.Length;
@@ -31,7 +40,7 @@
         public static string Zero() { return "0"; }
 
         //Without Recursion
-        public static void PrintIndividualNumber1(int n)
+        public static void PrintIndividualNumber(int n)
         {
             string x = n.ToString();
             List<int> digits = x.Select(c => int.Parse(c.ToString())).ToList();
@@ -40,7 +49,7 @@
         static void Main(string[] args)
         {
             int n = 1234565879;
-            PrintIndividualNumber(n);
+            PrintIndividualNumber2(n);
         }
     }
 }
